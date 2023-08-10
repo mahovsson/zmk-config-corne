@@ -5,33 +5,45 @@
 
 // Keymap configuration (Colemak-DHm)
 / {
+        behaviors {
+          tp: tap_preferred {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAP_PREFERRED";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+          };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  | # |  Y  |  U   |  I  |  O  |  P  | ESC   |
-// | CTRL |  A  |  S  |  D  |  F  |  G  | # |  H  |  J   |  K  |  L  |  ;  |  '    |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  | # |  N  |  M   |  ,  |  .  |  /  | ALT    |
-//                    | LWR | GUI | BKSP | # | ENT | SPC  | RSE |
+// |  TAB |  Q  |  W  |  E  |   R  |  T       | # |  Y  |  U   |  I  |  O  |  P  | ESC   |
+// | CTRL |  A  |  S  |  D  |   F  |  G       | # |  H  |  J   |  K  |  L  |  ;  |  '    |
+// | SHFT |  Z  |  X  |  C  |   V  |  B       | # |  N  |  M   |  ,  |  .  |  /  | ALT   |
+//                    | LWR | BKSP | LGUI/ENT | # | ENT | SPC  | RSE |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp ESC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RALT
-                   &mo 1 &kp LGUI &kp BKSP   &kp RET &kp SPACE &mo 2
+   &kp TAB   &kp Q &kp W &kp E &kp R &kp T       &kp Y &kp U  &kp I     &kp O   &kp P    &kp ESC
+   &kp LCTRL &kp A &kp S &kp D &kp F &kp G       &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B       &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RALT
+                   &mo 1 &kp BKSP &tp LGUI RET   &kp RET &kp SPACE &mo 2
                         >;
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  F1  |  F2  |  F3        |  F4  |  F5  | # |  F6 |  F7     |  F8 |  F9 |  F10  |     |
-// | BTCLR| Prev | Next | Play/Pause | Vol+ | Vol-  | # |     | UP     |     |     |      |     |
-// | BT1  |      |      |            |      |       | # | LFT | DOWN   | RGT |     |      |     |
+// |  TAB |  F1  |  F2  |  F3        |  F4  |  F5  | #  |  F6 |  F7    |  F8 |  F9 |  F10  |     |
+// | BTCLR| Prev | Next | Play/Pause | Vol+ | Vol-  | # |     | UP     |     |     |       |     |
+// | BT1  |      |      |            |      |       | # | LFT | DOWN   | RGT |     |       |     |
 //                    |     | GUI | BKSP | # | ENT | SPC |    |
                         bindings = <
    &kp TAB      &kp F1     &kp F2     &kp F3   &kp F4       &kp F5        &kp F6   &kp F7    &kp F8    &kp F9  &kp F10 &trans
    &bt BT_CLR   &kp C_PREV &kp C_NEXT &kp C_PP &kp C_VOL_UP &kp C_VOL_DN  &trans   &kp UP    &trans    &trans  &trans &trans
    &bt BT_SEL 0 &trans     &trans     &trans   &trans       &trans        &kp LEFT &kp DOWN  &kp RIGHT &trans  &trans &trans
-                                      &trans   &kp LGUI     &kp BSPC      &kp RET  &kp SPACE &trans
+                                      &trans   &kp BKSP     &kp LGUI      &kp RET  &kp SPACE &trans
                         >;
                 };
 
