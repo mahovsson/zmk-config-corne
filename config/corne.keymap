@@ -16,16 +16,27 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
           };
-          pht: positional_hold_tap {
+          lh_pht: left_hand_positional_hold_tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "POSITIONAL_HOLD_TAP";
+            label = "LEFT_POSITIONAL_HOLD_TAP";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <400>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <100>;
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <1>;    // <---[[the W key]]
+            hold-trigger-key-positions = <5 6 7 8 9 11 17>;
         };
+        rh_pht: right_hand_positional_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RIGHT_POSITIONAL_HOLD_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <100>;
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <7 8 9 10 16 17>;
+        };
+
         };
 
         keymap {
@@ -38,10 +49,10 @@
 // | pht Vol+/Prev|  Z           |  X         |  C          |  D             |  V               | # |  K           |  H             |  ,          |  .          |  /           |  pht Vol-/Next  |
 //                                            |             |  BKSP          |  pht RSA  LGUI   | # |  pht LWR ENT |  SPC           |             |
                         bindings = <
-        &kp C_PP             &kp Q       &kp W       &kp F       &kp P             &kp B          &kp J     &kp L           &kp U           &kp Y        &kp SEMI    &kp ESC
-        &kp TAB              &pht CTRL A &pht ALT R  &pht LGUI S &pht LSHFT T      &kp G          &kp M     &pht SHFT N     &pht GUI E      &pht ALT I   &pht CTRL O &kp SQT
-        &pht C_VOL_UP C_PREV &kp Z       &kp X       &kp C       &kp D             &kp V          &kp K     &kp H           &kp COMMA       &kp DOT      &kp FSLH    &pht C_VOL_DN C_NEXT
-                                        &trans      &kp BKSP    &pht mo 2 LGUI     &pht mo 1 RET  &kp SPACE &trans
+        &kp C_PP             &kp Q          &kp W       &kp F       &kp P             &kp B          &kp J     &kp L           &kp U           &kp Y        &kp SEMI    &kp ESC
+        &kp TAB              &lh_pht CTRL A &lh_pht ALT R  &lh_pht LGUI S &lh_pht LSHFT T      &kp G          &kp M     &rh_pht SHFT N     &rh_pht GUI E      &rh_pht ALT I   &rh_pht CTRL O &kp SQT
+        &lh_pht C_VOL_UP C_PREV &kp Z          &kp X       &kp C       &kp D             &kp V          &kp K     &kp H           &kp COMMA       &kp DOT      &kp FSLH    &rh_pht C_VOL_DN C_NEXT
+                                        &trans      &kp BKSP    &lh_pht mo 2 LGUI     &rh_pht mo 1 RET  &kp SPACE &trans
                         >;
                 };
                 lower_layer {
