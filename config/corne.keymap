@@ -7,15 +7,6 @@
 // Keymap configuration (Colemak-DHm)
 / {
         behaviors {
-          tp: tap_preferred {
-            compatible = "zmk,behavior-hold-tap";
-            label = "TAP_PREFERRED";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-          };
           lh_pht: left_hand_positional_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "LEFT_POSITIONAL_HOLD_TAP";
@@ -24,7 +15,7 @@
             tapping-term-ms = <100>;
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <5 6 7 8 9 11 17>;
+            hold-trigger-key-positions = <5 6 7 8 17>;
         };
         rh_pht: right_hand_positional_hold_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -34,7 +25,7 @@
             tapping-term-ms = <100>;
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <7 8 9 10 16 17>;
+            hold-trigger-key-positions = <6 7 8 9 15>;
         };
 
         };
@@ -46,12 +37,12 @@
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // | Play/Pause   |  Q           | W          |  F          |  P             |  B               | # |  J           |  L             |  U          |  Y          |  ;           |  ESC            |
 // | TAB          |  pht CTRL A  | pht ALT R  |  pht GUI S  |  pht SHIFT T   |  G               | # |  M           |  pht SHIFT N   |  pht GUI E  |  pht ALT I  |  pht CTRL O  |  '              |
-// | pht Vol+/Prev|  Z           |  X         |  C          |  D             |  V               | # |  K           |  H             |  ,          |  .          |  /           |  pht Vol-/Next  |
+// | Prev         |  Z           |  X         |  C          |  D             |  V               | # |  K           |  H             |  ,          |  .          |  /           |  Next           |
 //                                            |             |  BKSP          |  pht RSA  LGUI   | # |  pht LWR ENT |  SPC           |             |
                         bindings = <
         &kp C_PP             &kp Q          &kp W       &kp F       &kp P             &kp B          &kp J     &kp L           &kp U           &kp Y        &kp SEMI    &kp ESC
         &kp TAB              &lh_pht CTRL A &lh_pht ALT R  &lh_pht LGUI S &lh_pht LSHFT T      &kp G          &kp M     &rh_pht SHFT N     &rh_pht GUI E      &rh_pht ALT I   &rh_pht CTRL O &kp SQT
-        &lh_pht C_VOL_UP C_PREV &kp Z          &kp X       &kp C       &kp D             &kp V          &kp K     &kp H           &kp COMMA       &kp DOT      &kp FSLH    &rh_pht C_VOL_DN C_NEXT
+        &kp C_PREV &kp Z          &kp X       &kp C       &kp D             &kp V          &kp K     &kp H           &kp COMMA       &kp DOT      &kp FSLH    &kp C_NEXT
                                         &trans      &kp BKSP    &lh_pht mo 2 LGUI     &rh_pht mo 1 RET  &kp SPACE &trans
                         >;
                 };
