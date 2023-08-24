@@ -57,9 +57,9 @@
 // | Prev         |  Z           |  X         |  C          |  D             |  V               | # |  K           |  H             |  ,          |  .          |  /           |  Next           |
 //                                            |             |  BKSP          |  RSA / LGUI      | # |  LWR / ENT   |  SPC           |             |
                         bindings = <
-        &kp C_PP             &kp Q          &kp W       &kp F       &kp P             &kp B          &kp J     &kp L           &kp U           &kp Y        &kp SEMI    &kp ESC
-        &kp TAB              &mtl CTRL A    &mtl ALT R  &mtl LGUI S &mtl LSHFT T      &kp G          &kp M     &mtr SHFT N     &mtr GUI E      &mtr ALT I   &mtr CTRL O &kp SQT
-        &kp C_PREV &kp Z     &kp X          &kp C       &kp D       &kp V             &kp K          &kp H     &kp COMMA       &kp DOT         &kp FSLH     &kp C_NEXT
+        &kp C_PP             &kp Q          &kp W       &kp F       &kp P             &kp B          &kp J     &kp L           &kp U           &kp Y        &kp SEMI     &kp ESC
+        &kp TAB              &mtl LCTRL A   &mtl LALT R &mtl LGUI S &mtl LSHFT T      &kp G          &kp M     &mtr RSHIFT N   &mtr RGUI E     &mtr RALT I  &mtr RCTRL O &kp SQT
+        &kp C_PREV           &kp Z          &kp X       &kp C       &kp D             &kp V          &kp K     &kp H           &kp COMMA       &kp DOT      &kp FSLH     &kp C_NEXT
                                             &trans      &kp BKSP    &mtl mo 2 LGUI    &mtr mo 1 RET  &kp SPACE &trans
                         >;
                 };
