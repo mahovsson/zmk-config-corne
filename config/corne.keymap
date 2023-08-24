@@ -57,10 +57,10 @@
 // | Prev         |  Z           |  X         |  C          |  D             |  V               | # |  K           |  H             |  ,          |  .          |  /           |  Next           |
 //                                            |             |  BKSP          |  RSA / LGUI      | # |  LWR / ENT   |  SPC           |             |
                         bindings = <
-        &kp C_PP             &kp Q          &kp W       &kp F       &kp P             &kp B          &kp J     &kp L           &kp U           &kp Y        &kp SEMI     &kp ESC
-        &kp TAB              &mtl LCTRL A   &mtl LALT R &mtl LGUI S &mtl LSHFT T      &kp G          &kp M     &mtr RSHIFT N   &mtr RGUI E     &mtr RALT I  &mtr RCTRL O &kp SQT
-        &kp C_PREV           &kp Z          &kp X       &kp C       &kp D             &kp V          &kp K     &kp H           &kp COMMA       &kp DOT      &kp FSLH     &kp C_NEXT
-                                            &trans      &kp BKSP    &mtl mo 2 LGUI    &mtr mo 1 RET  &kp SPACE &trans
+        &kp C_PP             &kp Q          &kp W       &kp F       &kp P             &kp B           &kp J     &kp L           &kp U           &kp Y        &kp SEMI     &kp ESC
+        &kp TAB              &mtl LCTRL A   &mtl LALT R &mtl LGUI S &mtl LSHFT T      &kp G           &kp M     &mtr RSHIFT N   &mtr RGUI E     &mtr RALT I  &mtr RCTRL O &kp SQT
+        &kp C_PREV           &kp Z          &kp X       &kp C       &kp D             &kp V           &kp K     &kp H           &kp COMMA       &kp DOT      &kp FSLH     &kp C_NEXT
+                                            &trans      &kp BKSP    &mtl mo 2 LGUI    &mtr mo 1 ENTER &kp SPACE &trans
                         >;
                 };
                 lower_layer {
@@ -73,7 +73,7 @@
         &kp F1                   &kp F2     &kp F3     &kp F4   &kp F5    &kp LEFT_BRACE             &kp RIGHT_BRACE             &kp MINUS       &kp EQUAL      &trans     &kp F10      &ext_power EP_ON
         &kp F6   &kp F7     &kp F8     &kp F9   &kp F10   &kp LEFT_PARENTHESIS       &kp RIGHT_PARENTHESIS       &trans          &trans         &trans     &trans       &bt BT_CLR
         &trans   &kp GRAVE  &trans     &trans   &trans    &kp LEFT_BRACKET           &kp RIGHT_BRACKET           &trans          &trans         &trans     &trans       &bt BT_SEL 0
-                                        &trans  &kp BKSP  &kp LGUI                   &kp RET                     &kp SPACE       &trans
+                                        &trans  &kp BKSP  &kp LGUI                   &kp ENTER                   &kp SPACE       &trans
                         >;
                 };
 
