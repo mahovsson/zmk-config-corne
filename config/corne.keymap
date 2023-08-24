@@ -24,8 +24,8 @@
             label = "MOD_TAP_LEFT";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <220>;
+            quick-tap-ms = <0>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
@@ -37,8 +37,8 @@
             label = "MOD_TAP_RIGHT";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <220>;
+            quick-tap-ms = <0>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
@@ -50,8 +50,8 @@
             label = "MOD_TAP_LEFT_MO";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <220>;
+            quick-tap-ms = <0>;
             bindings = <&mo>, <&kp>;
             hold-trigger-key-positions = <THUMBS>;
             hold-trigger-on-release;
@@ -63,8 +63,8 @@
             label = "MOD_TAP_RIGHT_MO";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <220>;
+            quick-tap-ms = <0>;
             bindings = <&mo>, <&kp>;
             hold-trigger-key-positions = <THUMBS>;
             hold-trigger-on-release;
