@@ -1,55 +1,119 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
 
+/*                KEY POSITIONS
+             0   1   2   3   4   5      6   7   8   9   10  11
+             12  13  14  15  16  17     18  19  20  21  22  23
+             24  25  26  27  28  29     30  31  32  33  34  35
+                         36  37  38     39  40  41            */
+
+/* Key Position Groups */
+#define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29  // left-hand keys
+#define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 // right-hand keys
+#define THUMBS 36 37 38 39 40 41                      // thumb keys
+
+
+
+// Keymap configuration (Colemak-DHm)
 / {
+        behaviors {
+          mtl: mod_tap_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_TAP_LEFT";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <0>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+            global-quick-tap;
+                };
+
+          mtr: mod_tap_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_TAP_RIGHT";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <0>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+            global-quick-tap;
+                };
+
+          mtl_mo: mod_tap_left_mo {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_TAP_LEFT_MO";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <0>;
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <THUMBS>;
+            hold-trigger-on-release;
+            global-quick-tap;
+                };
+
+          mtr_mo: mod_tap_right_mo {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_TAP_RIGHT_MO";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <0>;
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <THUMBS>;
+            hold-trigger-on-release;
+            global-quick-tap;
+                };
+
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// | Play/Pause   |  Q           | W          |  F          |  P             |  B               | # |  J           |  L             |  U          |  Y          |  ;           |  ESC            |
+// | TAB          |  CTRL / A    | ALT / R    |  GUI / S    |  SHIFT / T     |  G               | # |  M           |  SHIFT / N     |  GUI  / E   |  ALT / I    |  CTRL / O    |  '              |
+// | Prev         |  Z           |  X         |  C          |  D             |  V               | # |  K           |  H             |  ,          |  .          |  /           |  Next           |
+//                                            |             |  BKSP          |  RSA / LGUI      | # |  LWR / ENT   |  SPC           |             |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+        &kp C_PP             &kp Q          &kp W       &kp F       &kp P             &kp B           &kp J     &kp L           &kp U           &kp Y        &kp SEMI     &kp ESC
+        &kp TAB              &mtl LCTRL A   &mtl LALT R &mtl LGUI S &mtl LSHFT T      &kp G           &kp M     &mtr RSHIFT N   &mtr RGUI E     &mtr RALT I  &mtr RCTRL O &kp SQT
+        &kp C_PREV           &kp Z          &kp X       &kp C       &kp D             &kp V           &kp K     &kp H           &kp COMMA       &kp DOT      &kp FSLH     &kp C_NEXT
+                                            &trans      &kp BKSP    &mtl_mo 2 LGUI    &mtr_mo 1 ENTER &kp SPACE &trans
                         >;
                 };
                 lower_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// ----------------------------------------------------------------------------------------------------
+// |  F1  |  F2  |  F3  |  F4   |  F5  |  {    | # |  }  |  -   |  =  |     |       |  EP_ON   |
+// |  F6  |  F7  |  F8  |  F9   |  F10 |  ()   | # | ()  |      |     |     |       |  BTCLR   |
+// |      |  `   |      |       |      |  {}   | # | []  |      |     |     |       |  BT1     |
+//                      |       |      | ESC   | # | ENT |      |     |
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+        &kp F1   &kp F2     &kp F3     &kp F4   &kp F5    &kp LEFT_BRACE             &kp RIGHT_BRACE             &kp MINUS       &kp EQUAL      &trans     &trans       &ext_power EP_ON
+        &kp F6   &kp F7     &kp F8     &kp F9   &kp F10   &kp LEFT_PARENTHESIS       &kp RIGHT_PARENTHESIS       &trans          &trans         &trans     &trans       &bt BT_CLR
+        &trans   &kp GRAVE  &trans     &trans   &trans    &kp LEFT_BRACKET           &kp RIGHT_BRACKET           &trans          &trans         &trans     &trans       &bt BT_SEL 0
+                                       &trans   &trans    &kp ESC                    &kp ENTER                   &trans          &trans
                         >;
                 };
 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |    |  1  |  2  |  3  |  4  |  5  | # |  6    |  7   |  8   |  9      |     |      |
+// |    |     |     |     |     | TAB | # | LFT   | DOWN |  UP  |  RIGHT  |  0  |      |
+// |    |  `  |     |     |     |     | # |  :    |   '  |  ?   |   \     |     |      |
+//                  |     |     |     | # | ENTER |      |      |
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+        &trans &kp N1    &kp N2 &kp N3  &kp N4 &kp N5         &kp N6        &kp N7           &kp N8     &kp N9      &trans   &trans
+        &trans &trans    &trans &trans  &trans &kp TAB        &kp LEFT      &kp DOWN         &kp UP     &kp RIGHT   &kp N0   &trans
+        &trans &kp GRAVE &trans &trans  &trans &trans         &kp SEMICOLON &kp SINGLE_QUOTE &kp SLASH  &kp BSLH    &trans   &trans
+                                &trans  &trans &trans         &kp ENTER     &trans           &trans
                         >;
                 };
         };
