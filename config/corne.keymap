@@ -70,6 +70,12 @@
             hold-trigger-on-release;
             require-prior-idle-ms = <150>;
         };
+        tpd_grave: tpd_grave {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TPD_GRAVE";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE>, <&kp LC(GRAVE)>;
+        };
     };
 
     combos {
@@ -176,6 +182,16 @@
             bindings = <&kp RS(RG(RIGHT))>;
             key-positions = <39 19>;
         };
+
+        tab_left {
+            bindings = <&kp LG(LA(LEFT_ARROW))>;
+            key-positions = <4 38>;
+        };
+
+        tab_right {
+            bindings = <&kp RG(RA(LEFT_ARROW))>;
+            key-positions = <7 39>;
+        };
     };
 
     macros {
@@ -198,10 +214,10 @@
             //                                            |  `          |  BKSP          |  RSA / LGUI      | # |  LWR / ENT   |  SPC           |             |
 
             bindings = <
-&kp ESC    &kp Q            &kp W        &kp F                &kp P         &kp B                       &kp J            &kp L          &kp U                 &kp Y        &kp SEMI          &kp DOLLAR
-&kp TAB    &mtl LEFT_GUI A  &mtl LALT R  &mtl LEFT_CONTROL S  &mtl LSHFT T  &kp G                       &kp M            &mtr RSHIFT N  &mtr RIGHT_CONTROL E  &mtr RALT I  &mtr RIGHT_GUI O  &kp SQT
-&kp GRAVE  &kp Z            &kp X        &kp C                &kp D         &kp V                       &kp K            &kp H          &kp COMMA             &kp DOT      &kp FSLH          &kp CARET
-                                         &kp EXCLAMATION      &kp BKSP      &mtl_mo 2 LS(LEFT_SHIFT)    &mtr_mo 1 ENTER  &kp SPACE      &kp BSLH
+&kp ESC     &kp Q            &kp W        &kp F                &kp P         &kp B                       &kp J            &kp L          &kp U                 &kp Y        &kp SEMI          &kp DOLLAR
+&kp TAB     &mtl LEFT_GUI A  &mtl LALT R  &mtl LEFT_CONTROL S  &mtl LSHFT T  &kp G                       &kp M            &mtr RSHIFT N  &mtr RIGHT_CONTROL E  &mtr RALT I  &mtr RIGHT_GUI O  &kp SQT
+&tpd_grave  &kp Z            &kp X        &kp C                &kp D         &kp V                       &kp K            &kp H          &kp COMMA             &kp DOT      &kp FSLH          &kp CARET
+                                          &kp EXCLAMATION      &kp BKSP      &mtl_mo 2 LS(LEFT_SHIFT)    &mtr_mo 1 ENTER  &kp SPACE      &kp BSLH
             >;
         };
 
@@ -228,9 +244,9 @@
             //                  |     |     |     | # | ENTER |      |      |
 
             bindings = <
-&trans  &kp N7            &kp N8            &kp N9         &trans          &trans    &trans     &trans    &kp UP_ARROW  &trans     &trans  &trans
-&kp N0  &mtl LEFT_GUI N4  &mtl LEFT_ALT N5  &mtl LCTRL N6  &kp LEFT_SHIFT  &trans    &trans     &kp LEFT  &kp DOWN      &kp RIGHT  &trans  &trans
-&trans  &kp N1            &kp N2            &kp N3         &trans          &trans    &trans     &trans    &trans        &trans     &trans  &trans
+&trans  &kp N7            &kp N8            &kp N9         &trans          &trans    &none      &none     &kp UP_ARROW  &none      &none  &none
+&kp N0  &mtl LEFT_GUI N4  &mtl LEFT_ALT N5  &mtl LCTRL N6  &kp LEFT_SHIFT  &trans    &none      &kp LEFT  &kp DOWN      &kp RIGHT  &none  &none
+&trans  &kp N1            &kp N2            &kp N3         &trans          &trans    &none      &none     &none         &none      &none  &none
                                             &trans         &trans          &trans    &kp ENTER  &trans    &trans
             >;
         };
