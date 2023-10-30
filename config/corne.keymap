@@ -76,24 +76,24 @@
         compatible = "zmk,combos";
 
         copy {
-            bindings = <&kp K_COPY>;
+            bindings = <&kp K_UNDO>;
             key-positions = <26 27>;
             require-prior-idle-ms = <150>;
             layers = <0>;
         };
 
         paste {
-            bindings = <&kp K_PASTE>;
+            bindings = <&kp K_CUT>;
             key-positions = <28 27>;
         };
 
         left_braces {
-            bindings = <&kp LEFT_BRACE>;
+            bindings = <&kp LEFT_BRACKET>;
             key-positions = <31 32>;
         };
 
         right_brace {
-            bindings = <&kp RIGHT_BRACE>;
+            bindings = <&kp RIGHT_BRACKET>;
             key-positions = <32 33>;
         };
 
