@@ -76,14 +76,14 @@
         compatible = "zmk,combos";
 
         copy {
-            bindings = <&kp K_UNDO>;
-            key-positions = <26 27>;
+            bindings = <&kp LG(C)>;
+            key-positions = <27 26>;
             require-prior-idle-ms = <150>;
             layers = <0>;
         };
 
         paste {
-            bindings = <&kp K_CUT>;
+            bindings = <&kp LG(V)>;
             key-positions = <28 27>;
         };
 
@@ -160,6 +160,11 @@
         hash {
             bindings = <&kp HASH>;
             key-positions = <14 3>;
+        };
+
+        undo {
+            bindings = <&kp LG(Z)>;
+            key-positions = <25 26>;
         };
     };
 
