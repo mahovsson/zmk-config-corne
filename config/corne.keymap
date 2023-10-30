@@ -166,6 +166,16 @@
             bindings = <&kp LG(Z)>;
             key-positions = <25 26>;
         };
+
+        choose_ide_left {
+            bindings = <&kp LS(LG(LEFT_ARROW))>;
+            key-positions = <16 38>;
+        };
+
+        choose_ide_right {
+            bindings = <&kp RS(RG(RIGHT))>;
+            key-positions = <39 19>;
+        };
     };
 
     macros {
@@ -188,10 +198,10 @@
             //                                            |  `          |  BKSP          |  RSA / LGUI      | # |  LWR / ENT   |  SPC           |             |
 
             bindings = <
-&kp ESC    &kp Q            &kp W        &kp F                &kp P         &kp B             &kp J            &kp L          &kp U                 &kp Y        &kp SEMI          &kp DOLLAR
-&kp TAB    &mtl LEFT_GUI A  &mtl LALT R  &mtl LEFT_CONTROL S  &mtl LSHFT T  &kp G             &kp M            &mtr RSHIFT N  &mtr RIGHT_CONTROL E  &mtr RALT I  &mtr RIGHT_GUI O  &kp SQT
-&kp GRAVE  &kp Z            &kp X        &kp C                &kp D         &kp V             &kp K            &kp H          &kp COMMA             &kp DOT      &kp FSLH          &kp CARET
-                                         &kp EXCLAMATION      &kp BKSP      &mtl_mo 2 LGUI    &mtr_mo 1 ENTER  &kp SPACE      &kp BSLH
+&kp ESC    &kp Q            &kp W        &kp F                &kp P         &kp B                       &kp J            &kp L          &kp U                 &kp Y        &kp SEMI          &kp DOLLAR
+&kp TAB    &mtl LEFT_GUI A  &mtl LALT R  &mtl LEFT_CONTROL S  &mtl LSHFT T  &kp G                       &kp M            &mtr RSHIFT N  &mtr RIGHT_CONTROL E  &mtr RALT I  &mtr RIGHT_GUI O  &kp SQT
+&kp GRAVE  &kp Z            &kp X        &kp C                &kp D         &kp V                       &kp K            &kp H          &kp COMMA             &kp DOT      &kp FSLH          &kp CARET
+                                         &kp EXCLAMATION      &kp BKSP      &mtl_mo 2 LS(LEFT_SHIFT)    &mtr_mo 1 ENTER  &kp SPACE      &kp BSLH
             >;
         };
 
@@ -218,10 +228,10 @@
             //                  |     |     |     | # | ENTER |      |      |
 
             bindings = <
-&trans  &kp N7  &kp N8        &kp N9  &trans  &trans    &trans     &trans    &kp UP_ARROW  &trans     &trans  &trans
-&kp N0  &kp N4  &kp NUMBER_5  &kp N6  &trans  &trans    &trans     &kp LEFT  &kp DOWN      &kp RIGHT  &trans  &trans
-&trans  &kp N1  &kp N2        &kp N3  &trans  &trans    &trans     &trans    &trans        &trans     &trans  &trans
-                              &trans  &trans  &trans    &kp ENTER  &trans    &trans
+&trans  &kp N7            &kp N8            &kp N9         &trans          &trans    &trans     &trans    &kp UP_ARROW  &trans     &trans  &trans
+&kp N0  &mtl LEFT_GUI N4  &mtl LEFT_ALT N5  &mtl LCTRL N6  &kp LEFT_SHIFT  &trans    &trans     &kp LEFT  &kp DOWN      &kp RIGHT  &trans  &trans
+&trans  &kp N1            &kp N2            &kp N3         &trans          &trans    &trans     &trans    &trans        &trans     &trans  &trans
+                                            &trans         &trans          &trans    &kp ENTER  &trans    &trans
             >;
         };
     };
