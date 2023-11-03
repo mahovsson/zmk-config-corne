@@ -189,7 +189,7 @@
         };
 
         tab_right {
-            bindings = <&kp RG(RA(LEFT_ARROW))>;
+            bindings = <&kp RG(RA(RIGHT_ARROW))>;
             key-positions = <39 18>;
         };
     };
