@@ -31,6 +31,7 @@
             hold-trigger-on-release;
             require-prior-idle-ms = <150>;
         };
+
         mtr: mod_tap_right {
             compatible = "zmk,behavior-hold-tap";
             label = "MOD_TAP_RIGHT";
@@ -44,6 +45,7 @@
             hold-trigger-on-release;
             require-prior-idle-ms = <150>;
         };
+
         mtl_mo: mod_tap_left_mo {
             compatible = "zmk,behavior-hold-tap";
             label = "MOD_TAP_LEFT_MO";
@@ -57,6 +59,7 @@
             hold-trigger-on-release;
             require-prior-idle-ms = <150>;
         };
+
         mtr_mo: mod_tap_right_mo {
             compatible = "zmk,behavior-hold-tap";
             label = "MOD_TAP_RIGHT_MO";
@@ -70,6 +73,7 @@
             hold-trigger-on-release;
             require-prior-idle-ms = <150>;
         };
+
         tpd_grave: tpd_grave {
             compatible = "zmk,behavior-tap-dance";
             label = "TPD_GRAVE";
@@ -214,10 +218,10 @@
             //                                            |  `          |  BKSP          |  RSA / LGUI      | # |  LWR / ENT   |  SPC           |             |
 
             bindings = <
-&kp ESC     &kp Q            &kp W        &kp F                &kp P         &kp B                       &kp J            &kp L          &kp U                 &kp Y        &kp SEMI          &kp DOLLAR
-&kp TAB     &mtl LEFT_GUI A  &mtl LALT R  &mtl LEFT_CONTROL S  &mtl LSHFT T  &kp G                       &kp M            &mtr RSHIFT N  &mtr RIGHT_CONTROL E  &mtr RALT I  &mtr RIGHT_GUI O  &kp SQT
-&tpd_grave  &kp Z            &kp X        &kp C                &kp D         &kp V                       &kp K            &kp H          &kp COMMA             &kp DOT      &kp FSLH          &kp CARET
-                                          &kp EXCLAMATION      &kp BKSP      &mtl_mo 2 LS(LEFT_SHIFT)    &mtr_mo 1 ENTER  &kp SPACE      &kp BSLH
+&kp ESC    &kp Q            &kp W        &kp F                &kp P         &kp B                       &kp J            &kp L          &kp U                 &kp Y        &kp SEMI          &kp DOLLAR
+&kp TAB    &mtl LEFT_GUI A  &mtl LALT R  &mtl LEFT_CONTROL S  &mtl LSHFT T  &kp G                       &kp M            &mtr RSHIFT N  &mtr RIGHT_CONTROL E  &mtr RALT I  &mtr RIGHT_GUI O  &kp SQT
+&kp GRAVE  &kp Z            &kp X        &kp C                &kp D         &kp V                       &kp K            &kp H          &kp COMMA             &kp DOT      &kp FSLH          &kp CARET
+                                         &kp EXCLAMATION      &kp BKSP      &mtl_mo 2 LS(LEFT_SHIFT)    &mtr_mo 1 ENTER  &kp SPACE      &kp BSLH
             >;
         };
 
@@ -229,10 +233,10 @@
             //                      |       |      | ESC   | # | ENT |      |     |
 
             bindings = <
-&kp F12  &kp F7  &kp F8  &kp F9  &trans  &trans     &trans     &trans      &trans            &trans      &trans  &ext_power EP_ON
-&kp F11  &kp F4  &kp F5  &kp F6  &trans  &trans     &trans     &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT  &trans  &bt BT_CLR
-&kp F10  &kp F1  &kp F2  &kp F3  &trans  &trans     &trans     &trans      &trans            &trans      &trans  &bt BT_SEL 0
-                         &trans  &trans  &kp ESC    &kp ENTER  &trans      &trans
+&none  &none         &kp N7        &kp N8                &kp N9                    &trans     &trans     &trans      &trans            &trans      &trans  &ext_power EP_ON
+&none  &mtl LGUI N0  &mtl LALT N4  &mtl LEFT_CONTROL N5  &mtl LEFT_SHIFT NUMBER_6  &trans     &trans     &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT  &trans  &bt BT_CLR
+&none  &none         &kp N1        &kp N2                &kp N3                    &trans     &trans     &trans      &trans            &trans      &trans  &bt BT_SEL 0
+                                   &trans                &trans                    &kp ESC    &kp ENTER  &trans      &trans
             >;
         };
 
@@ -244,10 +248,10 @@
             //                  |     |     |     | # | ENTER |      |      |
 
             bindings = <
-&trans  &trans            &kp N7            &kp N8         &kp N9                  &trans    &none      &none     &kp UP_ARROW  &none      &none  &none
-&trans  &mtl LEFT_GUI N0  &mtl LEFT_ALT N4  &mtl LCTRL N5  &mtl LEFT_SHIFT LS(N6)  &trans    &none      &kp LEFT  &kp DOWN      &kp RIGHT  &none  &none
-&trans  &trans            &kp N1            &kp N2         &kp N3                  &trans    &none      &none     &none         &none      &none  &none
-                                            &trans         &trans                  &trans    &kp ENTER  &trans    &trans
+&trans  &kp F12            &kp F7            &kp F8         &kp F9              &trans    &none      &none     &kp UP_ARROW  &none      &none  &none
+&trans  &mtl LEFT_GUI F11  &mtl LEFT_ALT F4  &mtl LCTRL F5  &mtl LEFT_SHIFT F6  &trans    &none      &kp LEFT  &kp DOWN      &kp RIGHT  &none  &none
+&trans  &kp F10            &kp F1            &kp F2         &kp F3              &trans    &none      &none     &none         &none      &none  &none
+                                             &trans         &trans              &trans    &kp ENTER  &trans    &trans
             >;
         };
     };
