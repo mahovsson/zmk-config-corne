@@ -80,6 +80,13 @@
             #binding-cells = <0>;
             bindings = <&kp GRAVE>, <&kp LC(GRAVE)>;
         };
+
+        dbl_shft_new_behavior: dbl_shft_new_behavior {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DBL_SHFT_NEW_BEHAVIOR";
+            #binding-cells = <0>;
+            bindings = <&kp EXCLAMATION>, <&kp LS(LEFT_SHIFT)>;
+        };
     };
 
     combos {
@@ -218,10 +225,10 @@
             //                                            |  `          |  BKSP          |  RSA / LGUI      | # |  LWR / ENT   |  SPC           |             |
 
             bindings = <
-&kp ESC    &kp Q            &kp W        &kp F                &kp P         &kp B                       &kp J            &kp L          &kp U                 &kp Y        &kp SEMI          &kp DOLLAR
-&kp TAB    &mtl LEFT_GUI A  &mtl LALT R  &mtl LEFT_CONTROL S  &mtl LSHFT T  &kp G                       &kp M            &mtr RSHIFT N  &mtr RIGHT_CONTROL E  &mtr RALT I  &mtr RIGHT_GUI O  &kp SQT
-&kp GRAVE  &kp Z            &kp X        &kp C                &kp D         &kp V                       &kp K            &kp H          &kp COMMA             &kp DOT      &kp FSLH          &kp CARET
-                                         &kp EXCLAMATION      &kp BKSP      &mtl_mo 2 LS(LEFT_SHIFT)    &mtr_mo 1 ENTER  &kp SPACE      &kp BSLH
+&kp ESC    &kp Q            &kp W        &kp F                   &kp P         &kp B    &kp J            &kp L          &kp U                 &kp Y        &kp SEMI          &kp DOLLAR
+&kp TAB    &mtl LEFT_GUI A  &mtl LALT R  &mtl LEFT_CONTROL S     &mtl LSHFT T  &kp G    &kp M            &mtr RSHIFT N  &mtr RIGHT_CONTROL E  &mtr RALT I  &mtr RIGHT_GUI O  &kp SQT
+&kp GRAVE  &kp Z            &kp X        &kp C                   &kp D         &kp V    &kp K            &kp H          &kp COMMA             &kp DOT      &kp FSLH          &kp CARET
+                                         &dbl_shft_new_behavior  &kp BKSP      &to 2    &mtr_mo 1 ENTER  &kp SPACE      &kp BSLH
             >;
         };
 
