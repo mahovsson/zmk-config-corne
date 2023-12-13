@@ -53,7 +53,7 @@
             flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            bindings = <&mo>, <&kp>;
+            bindings = <&mo>, <&dbl_shft_new_behavior>;
 
             hold-trigger-key-positions = <THUMBS>;
             hold-trigger-on-release;
@@ -85,7 +85,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "DBL_SHFT_NEW_BEHAVIOR";
             #binding-cells = <0>;
-            bindings = <&kp EXCLAMATION>, <&kp LS(LEFT_SHIFT)>;
+            bindings = <&kp LS(LEFT_SHIFT)>;
         };
     };
 
@@ -225,10 +225,10 @@
             //                                            |  `          |  BKSP          |  RSA / LGUI      | # |  LWR / ENT   |  SPC           |             |
 
             bindings = <
-&kp ESC    &kp Q            &kp W        &kp F                   &kp P         &kp B    &kp J            &kp L          &kp U                 &kp Y        &kp SEMI          &kp DOLLAR
-&kp TAB    &mtl LEFT_GUI A  &mtl LALT R  &mtl LEFT_CONTROL S     &mtl LSHFT T  &kp G    &kp M            &mtr RSHIFT N  &mtr RIGHT_CONTROL E  &mtr RALT I  &mtr RIGHT_GUI O  &kp SQT
-&kp GRAVE  &kp Z            &kp X        &kp C                   &kp D         &kp V    &kp K            &kp H          &kp COMMA             &kp DOT      &kp FSLH          &kp CARET
-                                         &dbl_shft_new_behavior  &kp BKSP      &to 2    &mtr_mo 1 ENTER  &kp SPACE      &kp BSLH
+&kp ESC    &kp Q            &kp W        &kp F                &kp P          &kp B          &kp J            &kp L          &kp U                 &kp Y        &kp SEMI          &kp DOLLAR
+&kp TAB    &mtl LEFT_GUI A  &mtl LALT R  &mtl LEFT_CONTROL S  &mtl LSHFT T   &kp G          &kp M            &mtr RSHIFT N  &mtr RIGHT_CONTROL E  &mtr RALT I  &mtr RIGHT_GUI O  &kp SQT
+&kp GRAVE  &kp Z            &kp X        &kp C                &kp D          &kp V          &kp K            &kp H          &kp COMMA             &kp DOT      &kp FSLH          &kp CARET
+                                         &kp EXCLAMATION      &kp BACKSPACE  &mtl_mo 2 0    &mtr_mo 1 ENTER  &kp SPACE      &kp BSLH
             >;
         };
 
