@@ -85,7 +85,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "DBL_SHFT_NEW_BEHAVIOR";
             #binding-cells = <0>;
-            bindings = <&kp LS(LEFT_SHIFT)>;
+            bindings = <&none>, <&kp LS(RIGHT_SHIFT)>;
         };
     };
 
