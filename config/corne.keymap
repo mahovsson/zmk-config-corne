@@ -50,9 +50,9 @@
             compatible = "zmk,behavior-hold-tap";
             label = "MOD_TAP_LEFT_MO";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <160>;
+            quick-tap-ms = <140>;
             bindings = <&mo>, <&dbl_shft_new_behavior>;
 
             hold-trigger-key-positions = <THUMBS>;
@@ -86,7 +86,7 @@
             label = "DBL_SHFT_NEW_BEHAVIOR";
             #binding-cells = <0>;
             bindings = <&kp LS(LEFT_SHIFT)>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <180>;
         };
     };
 
@@ -241,10 +241,10 @@
             //                      |       |      | ESC   | # | ENT |      |     |
 
             bindings = <
-&none  &none         &kp N7        &kp N8                &kp N9                    &trans     &trans     &trans      &trans            &trans      &trans  &ext_power EP_ON
-&none  &mtl LGUI N0  &mtl LALT N4  &mtl LEFT_CONTROL N5  &mtl LEFT_SHIFT NUMBER_6  &trans     &trans     &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT  &trans  &bt BT_CLR
-&none  &none         &kp N1        &kp N2                &kp N3                    &trans     &trans     &trans      &trans            &trans      &trans  &bt BT_SEL 0
-                                   &trans                &trans                    &kp ESC    &kp ENTER  &trans      &trans
+&trans  &trans        &kp N7        &kp N8                &kp N9                    &trans     &trans     &trans      &trans            &trans      &trans  &ext_power EP_ON
+&trans  &mtl LGUI N0  &mtl LALT N4  &mtl LEFT_CONTROL N5  &mtl LEFT_SHIFT NUMBER_6  &trans     &trans     &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT  &trans  &bt BT_CLR
+&trans  &trans        &kp N1        &kp N2                &kp N3                    &trans     &trans     &trans      &trans            &trans      &trans  &bt BT_SEL 0
+                                    &trans                &trans                    &kp ESC    &kp ENTER  &trans      &trans
             >;
         };
 
@@ -256,9 +256,9 @@
             //                  |     |     |     | # | ENTER |      |      |
 
             bindings = <
-&trans  &kp F12            &kp F7            &kp F8         &kp F9              &trans    &none      &none     &kp UP_ARROW  &none      &none  &none
-&trans  &mtl LEFT_GUI F11  &mtl LEFT_ALT F4  &mtl LCTRL F5  &mtl LEFT_SHIFT F6  &trans    &none      &kp LEFT  &kp DOWN      &kp RIGHT  &none  &none
-&trans  &kp F10            &kp F1            &kp F2         &kp F3              &trans    &none      &none     &none         &none      &none  &none
+&trans  &kp F12            &kp F7            &kp F8         &kp F9              &trans    &trans     &trans    &kp UP_ARROW  &trans     &trans  &trans
+&trans  &mtl LEFT_GUI F11  &mtl LEFT_ALT F4  &mtl LCTRL F5  &mtl LEFT_SHIFT F6  &trans    &trans     &kp LEFT  &kp DOWN      &kp RIGHT  &trans  &trans
+&trans  &kp F10            &kp F1            &kp F2         &kp F3              &trans    &trans     &trans    &trans        &trans     &trans  &trans
                                              &trans         &trans              &trans    &kp ENTER  &trans    &trans
             >;
         };
