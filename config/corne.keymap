@@ -204,6 +204,11 @@
             bindings = <&kp RG(RA(RIGHT_ARROW))>;
             key-positions = <39 18>;
         };
+
+        question_mark {
+            bindings = <&kp QUESTION>;
+            key-positions = <36 19>;
+        };
     };
 
     macros {
@@ -241,10 +246,10 @@
             //                      |       |      | ESC   | # | ENT |      |     |
 
             bindings = <
-&trans  &trans        &kp N7        &kp N8                &kp N9                    &trans     &trans     &trans      &trans            &trans      &trans  &ext_power EP_ON
-&trans  &mtl LGUI N0  &mtl LALT N4  &mtl LEFT_CONTROL N5  &mtl LEFT_SHIFT NUMBER_6  &trans     &trans     &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT  &trans  &bt BT_CLR
-&trans  &trans        &kp N1        &kp N2                &kp N3                    &trans     &trans     &trans      &trans            &trans      &trans  &bt BT_SEL 0
-                                    &trans                &trans                    &kp ESC    &kp ENTER  &trans      &trans
+&trans  &trans  &kp N7  &kp N8  &kp N9  &trans     &trans     &trans      &trans            &trans      &trans  &ext_power EP_ON
+&trans  &trans  &kp N4  &kp N5  &kp N6  &trans     &trans     &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT  &trans  &bt BT_CLR
+&trans  &kp N0  &kp N1  &kp N2  &kp N3  &trans     &trans     &trans      &trans            &trans      &trans  &bt BT_SEL 0
+                        &trans  &trans  &kp ESC    &kp ENTER  &trans      &trans
             >;
         };
 
