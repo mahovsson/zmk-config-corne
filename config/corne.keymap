@@ -209,6 +209,11 @@
             bindings = <&kp QUESTION>;
             key-positions = <36 19>;
         };
+
+        double_shift_ide {
+            bindings = <&kp LS(LEFT_SHIFT)>;
+            key-positions = <16 19>;
+        };
     };
 
     macros {
